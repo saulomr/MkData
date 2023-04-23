@@ -1,0 +1,107 @@
+<h1 class="mt-4">Clientes</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cadastro/Edição</li>
+</ol>
+<div class="container">
+    <form #clienteform="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="success == true">
+                    Cliente Salvo/Atualizado com sucesso!
+                  </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>ID:</label>
+                    <input type="text" class="form-control"  disable="true" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Data Cadastro:</label>
+                    <input type="text" [ngModel]="cliente.id" name="id" class="form-control" [ngModel]="cliente.dataCadastro" disable="true"  />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome: *</label>
+                    <input type="text" class="form-control" name="dataCadastro"
+                    [(ngModel)]="cliente.nome" name="nome" />
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                <label>Tipo: *</label>
+                <select class="form-control" [(ngModel)]="cliente.tipo" name="tipo">
+                    
+                    <option value="Fisica">Pessoa Física</option>
+                    <option value="Juridica">Pessoa Jurídica</option>
+                  </select>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>CPF/CNPJ: *</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.cpfCnpj" name="cpfCnpj"  />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>RG/I.E: *</label>
+                    <input type="text" class="form-control" [(ngModel)]="cliente.rgIe" name="rgIe"  />
+                </div>
+            </div>
+         </div>       
+            
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Telefone: *</label>
+                        <input type="text" class="form-control" name="telefone"
+                        [(ngModel)]="cliente.telefone" name="telefone" />
+                    </div>
+                </div>
+    
+                <div class="col-md-6">
+                    <div class="form-group">
+                    <label>Ativo: *</label>
+                    <select class="form-control" [(ngModel)]="cliente.ativo" name="ativo">
+                        
+                        <option value="sim">Sim</option>
+                        <option value="nao">Não</option>
+                      </select>
+                    </div>
+                </div>
+            </div>    
+
+            
+        
+
+        <div class="row">
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-success" *ngIf="!cliente.id">
+                    <i class="fa fa-save"></i>Salvar
+                </button>
+
+                <button type="submit" class="btn btn-primary" *ngIf="cliente.id">
+                    <i class="fa fa-sync-alt"></i>Atualizar
+                </button>
+            
+                <button type="button" class="btn btn-danger ml-1" (click)="voltarParaListagem()">
+                    <i class="fa fa-arrow-alt-circle-left"></i>Voltar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
