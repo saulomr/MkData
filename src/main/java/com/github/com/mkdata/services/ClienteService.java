@@ -31,11 +31,6 @@ public class ClienteService {
 		
 	}
 	
-	public Cliente findByNome(String Nome) {
-		Optional<Cliente> obj = repository.findByNome(nome);
-		return obj.orElseThrow(() -> new ResourceNotFoundException(nome));		
-		
-	}
 	
 	public Cliente insert(Cliente obj) {
 		return repository.save(obj);
