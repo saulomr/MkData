@@ -15,6 +15,7 @@ export class ClientesListaComponent implements OnInit{
   clienteSelecionado!: Cliente;
   mensagemSucesso!: string;
   mensagemErro!: string;
+  filterText : string = '';
 
   constructor(private service : ClientesService, 
               private router : Router){}

@@ -22,7 +22,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="search">Pesquisa</label>
-                <input type="text" class="form-control" ng-model="search">
+                <input type="text" class="form-control" [(ngModel)]="filterText">
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let cliente of clientes">
+                <tr *ngFor="let cliente of clientes | filterClientes: filterText">
                     <td>{{ cliente.id }}</td>
                     <td>{{ cliente.nome }}</td>
                     <td>{{ cliente.tipo }}</td>
