@@ -22,7 +22,7 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label for="search">Pesquisa</label>
-                <input type="text" class="form-control" [(ngModel)]="filterText">
+                <input type="text" class="form-control" [(ngModel)]="filterText" />
             </div>
         </div>
     </div>
@@ -37,7 +37,7 @@
 <br />
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-condensed table-hover" >
+        <table class="table table-condensed table-hover" id="busca">
             <thead>
                 <tr>
                     <th>Id</th>
@@ -52,9 +52,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let cliente of clientes | filterClientes: filterText">
+                <tr *ngFor="let cliente of clientes | filterClientes : filterText">
                     <td>{{ cliente.id }}</td>
-                    <td>{{ cliente.nome }}</td>
+                    <td>{{ cliente.nome | lowercase}}</td>
                     <td>{{ cliente.tipo }}</td>
                     <td>{{ cliente.cpfCnpj }}</td>
                     <td>{{ cliente.rgIe }}</td>

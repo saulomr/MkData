@@ -4,13 +4,18 @@ import { Cliente } from "../cliente";
 @Pipe ({
     name: 'filterClientes'
 })
+
 export class filterPipe implements PipeTransform{
-    transform(clientes : Cliente[], filterText : string) {
-        if (clientes.length === 0 || filterText === ''){
+    transform(clientes : Cliente[], filterText : string) : Cliente[] {
+        if (!clientes || !filterText){
             return clientes;
-        } else {
-            return clientes.filter((cliente) => { 
-                return cliente.nome!.toLowerCase() === filterText.toLowerCase()})
+        } 
+            return clientes.filter(cliente => 
+            
+                cliente.nome.toLowerCase().indexOf (filterText.toLocaleLowerCase()) !==-1);
+                
         }
+    
     }
-}
+
+
