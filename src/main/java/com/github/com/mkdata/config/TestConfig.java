@@ -19,17 +19,17 @@ public class TestConfig implements CommandLineRunner{
 	private ClienteRepository beneficiarioRepository;
 	
 	
-
 	@Override
 	public void run(String... args) throws Exception {	
+		/*
 		
-		Cliente c1 = new Cliente(null, "Michael Jackson da Silva", "Fisica", "13.143.256-54", "24671902", Instant.parse("2019-06-20T19:53:07Z"), "sim", "11988761324");
+		Cliente c1 = new Cliente(null, "Michael Jackson da Costa", "Fisica", "13.143.256-54", "24671902", Instant.parse("2023-04-24T14:40:30Z"), "sim", "11988761324");
 		
 		
 		beneficiarioRepository.saveAll(Arrays.asList(c1));
 		
 		
-		
+		*/
 	}
 			
 	

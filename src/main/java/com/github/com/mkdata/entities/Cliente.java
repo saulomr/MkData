@@ -1,13 +1,14 @@
 package com.github.com.mkdata.entities;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
@@ -21,29 +22,37 @@ public class Cliente implements Serializable{
 	private Long id;
 	private String nome;
 	private String tipo;
+	
 	private String cpfCnpj;
 	private String rgIe;
-	private Instant dataCadastro;
+	
+	private LocalDate dataCadastro;
 	private String ativo;
 	private String telefone;
+	
+	@PrePersist
+	public void prePersist() {
+		setDataCadastro(LocalDate.now());
+	}
 	
 	public Cliente() {
 		
 	}
 
 	public Cliente(Long id, String nome, String tipo, String cpfCnpj, String rgIe, 
-			Instant dataCadastro, String ativo, String telefone) {
+			LocalDate dataCadastro, String ativo, String telefone) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.cpfCnpj = cpfCnpj;
 		this.rgIe = rgIe;
+		
 		this.dataCadastro = dataCadastro;
 		this.ativo = ativo;
 		this.telefone = telefone;
 	}
-
+	
 	
 	public Long getId() {
 		return id;
@@ -86,13 +95,16 @@ public class Cliente implements Serializable{
 	}
 
 
-	public Instant getDataCadastro() {
+	public LocalDate getDataCadastro() {
 		return dataCadastro;
 	}
-
-	public void setDataCadastro(Instant dataCadastro) {
-		this.dataCadastro = dataCadastro;
+	
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = LocalDate.now();
+		
 	}
+	
+	
 
 	public String getAtivo() {
 		return ativo;
